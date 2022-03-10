@@ -11,12 +11,12 @@ import (
 )
 
 func main()  {
-  filename := flag.String("file", "data/story1.json", "the JSON file with the CYOA story")
+  filename := flag.String("file", "../../data/story.json", "the JSON file with the CYOA story")
 
   fmt.Printf("Using the story file: %s\n", *filename)
 
   f, err := os.Open(*filename)
-  if err !=nil {
+  if err != nil {
     log.Fatal("Unable to open story file")
   }
 
