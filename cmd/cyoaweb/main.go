@@ -3,7 +3,6 @@ package main
 import (
 	"encoding/json"
 	"flag"
-	"fmt"
 	"log"
 	"os"
 
@@ -11,9 +10,9 @@ import (
 )
 
 func main()  {
-  filename := flag.String("file", "../../data/story.json", "the JSON file with the CYOA story")
+  filename := flag.String("file", "./data/story.json", "the JSON file with the CYOA story")
 
-  fmt.Printf("Using the story file: %s\n", *filename)
+  log.Printf("Using the story file: %s\n", *filename)
 
   f, err := os.Open(*filename)
   if err != nil {
