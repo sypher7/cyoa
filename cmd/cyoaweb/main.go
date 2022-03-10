@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"log"
 	"os"
@@ -19,11 +18,10 @@ func main()  {
     log.Fatal("Unable to open story file")
   }
 
-  d := json.NewDecoder(f)
-  var story cyoa.Story
-  if err := d.Decode(&story); err != nil {
+  story, err := cyoa.JsonStory(f)
+  if err != nil {
     log.Fatal("Unable to decode story file")
   }
 
-  log.Printf("%+v\n", story)
+  log.Printf("%+v\n", *story)
 }
