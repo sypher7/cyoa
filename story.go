@@ -8,9 +8,9 @@ import (
 type Story map[string]Chapter
 
 type Chapter struct {
-	Title   string   `json:"title"`
-	Story   []string `json:"story"`
-	Options []Option `json:"options"`
+	Title      string   `json:"title"`
+	Paragraphs []string `json:"story"`
+	Options    []Option `json:"options"`
 }
 
 type Option struct {
@@ -19,13 +19,13 @@ type Option struct {
 }
 
 func JsonStory(r io.Reader) (*Story, error) {
-  var story *Story
+	var story *Story
 
-  d := json.NewDecoder(r)
+	d := json.NewDecoder(r)
 
-  if err := d.Decode(&story); err != nil {
-    return nil, err
-  }
+	if err := d.Decode(&story); err != nil {
+		return nil, err
+	}
 
-  return story, nil
+	return story, nil
 }
