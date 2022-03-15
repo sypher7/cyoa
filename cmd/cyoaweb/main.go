@@ -38,8 +38,7 @@ type storyHandler struct {
 }
 
 func (h storyHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	story := *h.s
-	err := tmpl.Execute(w, story["intro"])
+	err := tmpl.Execute(w, (*h.s)["intro"])
   if err != nil {
     log.Fatal(err)
   }
