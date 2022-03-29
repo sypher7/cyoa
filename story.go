@@ -28,19 +28,22 @@ var defaultHandlerTempl = `
     <head>
         <meta charset="utf-8">
         <title>Choose Your Own Adventure</title>
+				<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     </head>
 
     <body>
-        <h1>{{.Title}}</h1>
-        {{range .Story}}
-            <p>{{.}}</p>
-        {{end}}
+        <div class="card" style="margin: 3em;">
+				<div class="card-body">
+						<h5 class="card-title">{{.Title}}</h5>
+						{{range .Story}}
+								<p class="card-text">{{.}}</p>
+						{{end}}
 
-        <ul>
-            {{range .Options}}
-                <li><a href="/{{.Chapter}}">{{.Text}}</a></li>
-            {{end}}
-        </ul>
+						{{range .Options}}
+								<a href="/{{.Chapter}}" class="card-link">{{.Text}}</a><br />
+						{{end}}
+				</div>
+		</div>
     </body>
 </html>
 `
